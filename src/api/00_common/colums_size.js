@@ -16,7 +16,7 @@ export function getColumnsSizeApi(query) {
  * 保存api
  * @param {*} data
  */
-export function insertOrUpdateApi(data) {
+export function saveColumnsSizeApi(data) {
   return request({
     url: '/api/v1/columns/save',
     method: 'post',

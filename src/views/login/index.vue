@@ -231,7 +231,6 @@ export default {
           this.$store.dispatch('user/loginAction', this.loginForm)
             .then((data) => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
-              this.loading = false
             })
             .catch((data) => {
               // 获取验证码
@@ -241,6 +240,9 @@ export default {
               this.$nextTick(() => {
                 this.checkJson.errorMsg = data.message
               })
+            })
+            .finally(() => {
+              this.loading = false
             })
         } else {
           console.log('error submit!!')

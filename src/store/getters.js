@@ -15,6 +15,8 @@ const getters = {
   /** add by zxh */
   program: state => state.popUpSearchDialog.program,
   selectedDataJson: state => state.popUpSearchDialog.selectedDataJson,
-  formatRouter: state => state.formatRouter.isdo
+  formatRouter: state => state.formatRouter.isdo,
+  /** user session bean */
+  userSessionBean: state => state.user.session_bean
 }
 export default getters

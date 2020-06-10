@@ -9,7 +9,7 @@ export default {
   mounted() {
     this.setUIheight()
     // 初始化表格中列的宽度
-    this.setColumnsSize(this.$refs.multipleTable)
+    this.setColumnsSize(this.$refs.multipleTable, this.$options.name)
   },
   created() {
   },
@@ -50,6 +50,7 @@ export default {
     // 表格宽度发生变化时
     handleHeaderDragend(newWidth, oldWidth, column, event) {
       // 保存列的宽度
+      this.saveColumnsSize(this.$options.name, column)
     }
   }
 }

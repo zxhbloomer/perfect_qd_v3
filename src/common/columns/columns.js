@@ -1,16 +1,35 @@
-import { getColumnsSizeApi } from '@/api/00_common/colums_size'
+import { getColumnsSizeApi, saveColumnsSizeApi } from '@/api/00_common/colums_size'
 
 exports.install = function(Vue, options) {
-  Vue.prototype.setColumnsSize = function(refTables, page_info) {
+  /**
+   * 设置表格上的列宽度，如果有数据
+   */
+  Vue.prototype.setColumnsSize = function(refTables, page_code, type) {
     // 获取数据
-    getColumnsSizeApi({}).then(response => {
-      // 增加对象属性，columnTypeShowIcon，columnNameShowIcon
-      this.dataJson.listData = response.data.records
-      this.dataJson.paging = response.data
-      this.dataJson.paging.records = {}
+    getColumnsSizeApi({ page_code: page_code, type: type }).then(response => {
+      for (const item of response.data) {
+        for (const column of refTables.columns) {
+          if (item.column_property === column.property) {
+            column.realWidth = item.size
+            debugger
+          }
+        }
+      }
     }).finally(() => {
-      this.settings.loading = false
     })
-    return null
+  }
+
+  /**
+   * 设置表格上的列宽度，如果有数据
+   */
+  Vue.prototype.saveColumnsSize = function(page_code, column, type) {
+    // 获取数据
+    saveColumnsSizeApi({ page_code: page_code,
+      column_property: column.property,
+      type: type,
+      size: column.realWidth
+    }).then(response => {
+    }).finally(() => {
+    })
   }
 }
