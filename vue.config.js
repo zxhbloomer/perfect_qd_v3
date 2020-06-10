@@ -7,6 +7,7 @@ function resolve(dir) {
 }
 
 const name = defaultSettings.title || '管理后台' // page title
+
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm run
@@ -105,11 +106,11 @@ module.exports = {
       })
       .end()
 
-    config
-      // https://webpack.js.org/configuration/devtool/#development
-      .when(process.env.NODE_ENV === 'development',
-        config => config.devtool('cheap-source-map')
-      )
+    // config
+    //   // https://webpack.js.org/configuration/devtool/#development
+    //   .when(process.env.NODE_ENV === 'development',
+    //     config => config.devtool('cheap-source-map')
+    //   )
 
     config
       .when(process.env.NODE_ENV !== 'development',
