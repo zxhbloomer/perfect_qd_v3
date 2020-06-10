@@ -78,6 +78,11 @@
   display: inline-flex !important;
 }
 
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}
+
 .el-divider--horizontal {
   display: block;
   height: 1px;
