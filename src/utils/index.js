@@ -353,3 +353,8 @@ export function removeClass(ele, cls) {
     ele.className = ele.className.replace(reg, ' ')
   }
 }
+
+// 非空判断
+export function isNotEmpty(value) {
+  return value !== undefined && value !== '' && value !== null
+}
