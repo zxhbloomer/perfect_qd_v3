@@ -26,7 +26,7 @@
       </el-table-column>
     </el-table>
 
-    <el-dialog :visible="dialogVisible" :title="dialogType==='edit'?'Edit Role':'New Role'">
+    <el-dialog :visible.sync="dialogVisible" :title="dialogType==='edit'?'Edit Role':'New Role'">
       <el-form :model="role" label-width="80px" label-position="left">
         <el-form-item label="Name">
           <el-input v-model="role.name" placeholder="Role Name" />
@@ -228,7 +228,7 @@ export default {
         dangerouslyUseHTMLString: true,
         message: `
             <div>Role Key: ${key}</div>
-            <div>Role Nmae: ${name}</div>
+            <div>Role Name: ${name}</div>
             <div>Description: ${description}</div>
           `,
         type: 'success'
