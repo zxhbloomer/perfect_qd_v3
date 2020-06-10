@@ -8,7 +8,7 @@
       filterable
       default-first-option
       remote
-      placeholder="查询"
+      placeholder="Search"
       class="header-search-select"
       @change="change"
     >
@@ -159,7 +159,7 @@ export default {
     display: inline-block;
     vertical-align: middle;
 
-    /deep/ .el-input__inner {
+    ::v-deep .el-input__inner {
       border-radius: 0;
       border: 0;
       padding-left: 0;
