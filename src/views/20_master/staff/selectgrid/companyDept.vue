@@ -184,7 +184,7 @@
 </style>
 
 <style lang="scss" scoped>
-.mytree /deep/{
+.mytree ::v-deep{
     .el-tree > .el-tree-node:after {
     border-top: none;
   }

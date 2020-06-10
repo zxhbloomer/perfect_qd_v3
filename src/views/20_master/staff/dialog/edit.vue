@@ -417,11 +417,11 @@
     width: 100%;
   }
 
-  .el-card /deep/ .el-card__header {
+  .el-card ::v-deep .el-card__header {
     padding: 10px 10px;
   }
 
-  .el-card /deep/ .el-card__body {
+  .el-card ::v-deep .el-card__body {
     padding: 10px ;
   }
 

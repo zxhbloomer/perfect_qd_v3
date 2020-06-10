@@ -110,7 +110,7 @@
     background-color: #409eff
   }
 
-  .mytree /deep/{
+  .mytree ::v-deep{
     .el-tree > .el-tree-node:after {
     border-top: none;
   }

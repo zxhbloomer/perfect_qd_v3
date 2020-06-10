@@ -491,10 +491,10 @@
     transition: border-color .2s cubic-bezier(.645,.045,.355,1);
     width: 100%;
   }
-  .el-card /deep/ .el-card__header {
+  .el-card ::v-deep .el-card__header {
     padding: 10px 10px;
   }
-  .el-card /deep/ .el-card__body {
+  .el-card ::v-deep .el-card__body {
     padding: 10px ;
   }
   .position_tag{
