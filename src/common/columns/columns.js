@@ -12,7 +12,7 @@ exports.install = function(Vue, options) {
         for (const column in width_data_json) {
           if (item.column_property === column) {
             // column.minWidth = item.min_width
-            width_data_json[column] = item.min_width
+            width_data_json[column] = item.real_width
           }
         }
       }
@@ -24,7 +24,6 @@ exports.install = function(Vue, options) {
    * 设置表格上的列宽度，如果有数据
    */
   Vue.prototype.saveColumnsSize = function(page_code, column, type) {
-    debugger
     // 获取数据
     saveColumnsSizeApi({ page_code: page_code,
       column_property: column.property,
