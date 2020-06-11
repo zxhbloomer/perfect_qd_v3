@@ -6,10 +6,10 @@ export default {
   beforeMount() {
     window.addEventListener('resize', this.resizeHandler)
   },
-  mounted() {
+  async mounted() {
     this.setUIheight()
     // 初始化表格中列的宽度
-    this.setColumnsSize(this.$refs.multipleTable, this.$options.name)
+    await this.setColumnsSize(this.settings.table_min_width, this.$options.name)
   },
   created() {
   },

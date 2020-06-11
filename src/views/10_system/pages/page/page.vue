@@ -60,12 +60,12 @@
           <span>{{ (dataJson.searchForm.pageCondition.current - 1) * dataJson.searchForm.pageCondition.size + scope.$index + 1 }}</span>
         </template>
       </el-table-column>
-      <el-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" min-width="130" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="130" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="80" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="130" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
+      <el-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" :min-width="settings.table_min_width.code" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :min-width="settings.table_min_width.name" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :min-width="settings.table_min_width.component" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :min-width="settings.table_min_width.perms" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :min-width="settings.table_min_width.u_name" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :min-width="settings.table_min_width.u_time" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
         <template v-slot="scope">
           {{ formatDateTime(scope.row.u_time) }}
         </template>
@@ -150,6 +150,14 @@ export default {
       },
       // 页面设置json
       settings: {
+        table_min_width: {
+          code: 130,
+          name: 150,
+          component: 200,
+          perms: 130,
+          u_name: 80,
+          u_time: 130
+        },
         // 表格排序规则
         sortOrders: deepCopy(this.PARAMETERS.SORT_PARA),
         // 按钮状态
