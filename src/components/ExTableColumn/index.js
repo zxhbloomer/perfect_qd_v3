@@ -1,4 +1,4 @@
-import ExTableColumn from './ExTableColumn.vue'
+import ExTableColumn from './ExTableColumn.js'
 
 ExTableColumn.install = (Vue, options) => {
   Vue.prototype.$ELEMENT = options

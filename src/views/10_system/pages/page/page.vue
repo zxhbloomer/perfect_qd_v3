@@ -60,11 +60,15 @@
           <span>{{ (dataJson.searchForm.pageCondition.current - 1) * dataJson.searchForm.pageCondition.size + scope.$index + 1 }}</span>
         </template>
       </ex-table-column>
-      <ex-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
-      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
-      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
-      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
+      <ex-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
+      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
       <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
         <template v-slot="scope">
           {{ formatDateTime(scope.row.u_time) }}
