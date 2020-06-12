@@ -49,8 +49,8 @@
       @selection-change="handleSelectionChange"
       @header-dragend="handleHeaderDragend"
     >
-      <el-table-column v-if="!meDialogStatus" type="selection" width="45" prop="id" />
-      <el-table-column
+      <ex-table-column v-if="!meDialogStatus" type="selection" width="45" prop="id" />
+      <ex-table-column
         label="No"
         type="index"
         width="50"
@@ -59,17 +59,17 @@
         <template v-slot="scope">
           <span>{{ (dataJson.searchForm.pageCondition.current - 1) * dataJson.searchForm.pageCondition.size + scope.$index + 1 }}</span>
         </template>
-      </el-table-column>
-      <el-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" :width="settings.table_min_width.code" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :width="settings.table_min_width.name" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :width="settings.table_min_width.component" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :width="settings.table_min_width.perms" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :width="settings.table_min_width.u_name" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
-      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :width="settings.table_min_width.u_time" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
+      </ex-table-column>
+      <ex-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
+      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
+      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
+      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
+      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
         <template v-slot="scope">
           {{ formatDateTime(scope.row.u_time) }}
         </template>
-      </el-table-column>
+      </ex-table-column>
     </el-table>
     <pagination ref="minusPaging" :total="dataJson.paging.total" :page.sync="dataJson.paging.current" :limit.sync="dataJson.paging.size" @pagination="getDataList" />
 
@@ -100,7 +100,7 @@
 </style>
 
 <script>
-// import constants_program from '@/common/constants/constants_program'
+import elColumnsSize from '@/directive/el-table-columns-size'
 import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page'
 import resizeMixin from './pageResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
@@ -110,7 +110,7 @@ import deepCopy from 'deep-copy'
 export default {
   // name: constants_program.P_SYS_PAGES, // 页面id，和router中的name需要一致，作为缓存
   components: { Pagination, editDialog },
-  directives: { },
+  directives: { elColumnsSize },
   mixins: [resizeMixin],
   props: {
     // 自己作为弹出框时的参数
@@ -150,14 +150,14 @@ export default {
       },
       // 页面设置json
       settings: {
-        table_min_width: {
-          code: 130,
-          name: 150,
-          component: 200,
-          perms: 130,
-          u_name: 80,
-          u_time: 130
-        },
+        // table_width: {
+        //   code: 130,
+        //   name: 150,
+        //   component: 200,
+        //   perms: 130,
+        //   u_name: 80,
+        //   u_time: 130
+        // },
         // 表格排序规则
         sortOrders: deepCopy(this.PARAMETERS.SORT_PARA),
         // 按钮状态

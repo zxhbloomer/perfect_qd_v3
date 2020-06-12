@@ -8,8 +8,6 @@ export default {
   },
   async mounted() {
     this.setUIheight()
-    // 初始化表格中列的宽度
-    await this.setColumnsSize(this.settings.table_min_width, this.$options.name)
   },
   created() {
   },

@@ -5,7 +5,7 @@ exports.install = function(Vue, options) {
    * 设置表格上的列宽度，如果有数据
    */
   Vue.prototype.setColumnsSize = async function(width_data_json, page_code, type) {
-    this.$refs.multipleTable.columns[2].realWidth = 1000
+    // this.$refs.multipleTable.columns[2].width = 1000
     // 获取数据
     await getColumnsSizeApi({ page_code: page_code, type: type }).then(response => {
       for (const item of response.data) {
