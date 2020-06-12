@@ -1,10 +1,16 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
+  <el-breadcrumb class="app-breadcrumb" separator-class="el-icon-arrow-right">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
+      <!-- <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
         <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.meta.title }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
-      </el-breadcrumb-item>
+      </el-breadcrumb-item> -->
+      <div v-for="(item,index) in levelList" :key="item.path">
+        <el-breadcrumb-item v-for="(_item) in item.meta.fulltitle" :key="_item">
+          <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ _item }}</span>
+          <a v-else @click.prevent="handleLink(item)">{{ _item }}</a>
+        </el-breadcrumb-item>
+      </div>
     </transition-group>
   </el-breadcrumb>
 </template>
@@ -37,9 +43,8 @@ export default {
       const first = matched[0]
 
       if (!this.isDashboard(first)) {
-        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
       }
-
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
     },
     isDashboard(route) {
@@ -75,8 +80,19 @@ export default {
   margin-left: 8px;
 
   .no-redirect {
-    color: #97a8be;
+    // upd by zxh
+    // color: #97a8be;
+    color: #fff;
     cursor: text;
   }
+}
+.el-breadcrumb__inner.is-link, .el-breadcrumb__inner a {
+  font-weight: bold!important;;
+  color: #fff;
+  text-decoration: underline;
+}
+.el-breadcrumb__inner.is-link:hover, .el-breadcrumb__inner a:hover {
+  color: #66d9d6;
+  cursor: pointer;
 }
 </style>
