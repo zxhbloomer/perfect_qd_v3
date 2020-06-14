@@ -26,8 +26,6 @@ export default {
   },
   mounted() {
     // 描绘完成
-  },
-  updated() {
     const { componentInstance: $table } = this.$vnode
     if (!$table) { return }
     // 设置参数
@@ -36,25 +34,24 @@ export default {
     if (this.type) {
       table_type = this.type
     }
-
     // 调用
-    this.setColumnsSize($table, page_code, table_type)
-
-    $table.doLayout()
+    this.setColumnsSize($table, page_code, table_type, $table)
+  },
+  updated() {
   },
   methods: {
-    async setColumnsSize(table_object, page_code, table_type) {
+    setColumnsSize(table_object, page_code, table_type, tableObj) {
       // 获取数据
-      await getColumnsSizeApi({ page_code: page_code, type: table_type }).then(response => {
+      getColumnsSizeApi({ page_code: page_code, type: table_type }).then(response => {
         for (const item of response.data) {
           for (const column of table_object.columns) {
-            if (item.column_property === column.property) {
-              // column.minWidth = item.min_width
+            if (item.column_id === column.id) {
               column.width = item.real_width
             }
           }
         }
       }).finally(() => {
+        tableObj.doLayout()
       })
     }
   }

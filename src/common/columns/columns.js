@@ -26,7 +26,9 @@ exports.install = function(Vue, options) {
   Vue.prototype.saveColumnsSize = function(page_code, column, type) {
     // 获取数据
     saveColumnsSizeApi({ page_code: page_code,
+      column_label: column.label,
       column_property: column.property,
+      column_id: column.id,
       type: type,
       min_width: column.minWidth,
       real_width: column.realWidth
