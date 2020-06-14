@@ -32,7 +32,7 @@ export default {
       table_type = binding.value.type
     }
 
-    // 调用共通
+    // 调用
     setColumnsSize($table, page_code, table_type)
 
     $table.doLayout()
