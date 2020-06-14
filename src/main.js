@@ -43,8 +43,10 @@ import ElInputTag from '@/components/inputtag'
 Vue.use(ElInputTag)
 // 引入组件和样式
 import RouterTab from '@/components/RouterTab/install'
+import ExTable from '@/components/ExTable'
 import ExTableColumn from '@/components/ExTableColumn'
 Vue.use(RouterTab)
+Vue.use(ExTable)
 Vue.use(ExTableColumn)
 
 Vue.use(commonFunction)

@@ -7,6 +7,7 @@ const setColumnsSize = async function(table_object, page_code, table_type) {
       for (const column of table_object.columns) {
         if (item.column_property === column.property) {
           // column.minWidth = item.min_width
+          debugger
           column.width = item.real_width
         }
       }
@@ -17,6 +18,11 @@ const setColumnsSize = async function(table_object, page_code, table_type) {
 
 export default {
   bind(el, binding, vnode) {
+  },
+  inserted(el, binding, vnode) {
+  },
+  update(el, binding, vnode) {
+    debugger
     const { componentInstance: $table } = vnode
     if (!$table) { return }
     // 设置参数
@@ -30,10 +36,6 @@ export default {
     setColumnsSize($table, page_code, table_type)
 
     $table.doLayout()
-  },
-  inserted(el, binding, vnode) {
-  },
-  update(el, binding, vnode) {
   },
   componentUpdated(el, binding, vnode) {
   },

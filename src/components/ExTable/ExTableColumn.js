@@ -1,7 +1,7 @@
 import { TableColumn } from 'element-ui'
 
 export default {
-  name: 'ExTableColumn',
+  name: 'ElTableColumn',
 
   extends: TableColumn,
 

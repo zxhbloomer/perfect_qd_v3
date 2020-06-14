@@ -12,7 +12,7 @@ exports.install = function(Vue, options) {
         for (const column in width_data_json) {
           if (item.column_property === column) {
             // column.minWidth = item.min_width
-            width_data_json[column] = item.real_width
+            // width_data_json[column] = item.real_width
           }
         }
       }

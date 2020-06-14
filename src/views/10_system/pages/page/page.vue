@@ -32,6 +32,8 @@
     <el-table
       ref="multipleTable"
       v-loading="settings.loading"
+      v-el-columns-size
+      :fit-columns="['name', 'code', 'component']"
       :data="dataJson.listData"
       :element-loading-text="'正在拼命加载中...'"
       element-loading-background="rgba(255, 255, 255, 0.5)"
@@ -49,8 +51,8 @@
       @selection-change="handleSelectionChange"
       @header-dragend="handleHeaderDragend"
     >
-      <ex-table-column v-if="!meDialogStatus" type="selection" width="45" prop="id" />
-      <ex-table-column
+      <el-table-column v-if="!meDialogStatus" type="selection" width="45" prop="id" />
+      <el-table-column
         label="No"
         type="index"
         width="50"
@@ -59,21 +61,17 @@
         <template v-slot="scope">
           <span>{{ (dataJson.searchForm.pageCondition.current - 1) * dataJson.searchForm.pageCondition.size + scope.$index + 1 }}</span>
         </template>
-      </ex-table-column>
-      <ex-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
-      <ex-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
-      <ex-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
+      </el-table-column>
+      <el-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" min-width="200" prop="u_time" label="更新时间">
         <template v-slot="scope">
           {{ formatDateTime(scope.row.u_time) }}
         </template>
-      </ex-table-column>
+      </el-table-column>
     </el-table>
     <pagination ref="minusPaging" :total="dataJson.paging.total" :page.sync="dataJson.paging.current" :limit.sync="dataJson.paging.size" @pagination="getDataList" />
 
