@@ -44,11 +44,6 @@ export default {
       } catch (error) {
         console.log('mixin error')
       }
-    },
-    // 表格宽度发生变化时
-    handleHeaderDragend(newWidth, oldWidth, column, event) {
-      // 保存列的宽度
-      this.saveColumnsSize(this.$options.name, column)
     }
   }
 }

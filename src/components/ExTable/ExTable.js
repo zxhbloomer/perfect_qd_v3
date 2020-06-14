@@ -14,6 +14,10 @@ export default {
     type: {
       type: String,
       default: undefined
+    },
+    page_code: {
+      type: String,
+      default: undefined
     }
   },
   created() {
