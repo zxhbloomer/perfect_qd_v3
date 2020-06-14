@@ -44,7 +44,6 @@ Vue.use(ElInputTag)
 // 引入组件和样式
 import RouterTab from '@/components/RouterTab/install'
 import ExTable from '@/components/ExTable'
-import ExTableColumn from '@/components/ExTableColumn'
 Vue.use(RouterTab)
 
 Vue.use(commonFunction)
@@ -62,9 +61,6 @@ Vue.use(Element, {
 })
 /** 扩展的table和tablecolumn必须在，element下面，否则没有效果 */
 Vue.use(ExTable, {
-  size: Cookies.get('size') || 'mini' // set element-ui default size
-})
-Vue.use(ExTableColumn, {
   size: Cookies.get('size') || 'mini' // set element-ui default size
 })
 
