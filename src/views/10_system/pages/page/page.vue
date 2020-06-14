@@ -32,8 +32,6 @@
     <el-table
       ref="multipleTable"
       v-loading="settings.loading"
-      v-el-columns-size
-      :fit-columns="['name', 'code', 'component']"
       :data="dataJson.listData"
       :element-loading-text="'正在拼命加载中...'"
       element-loading-background="rgba(255, 255, 255, 0.5)"
@@ -49,7 +47,6 @@
       @current-change="handleCurrentChange"
       @sort-change="handleSortChange"
       @selection-change="handleSelectionChange"
-      @header-dragend="handleHeaderDragend"
     >
       <el-table-column v-if="!meDialogStatus" type="selection" width="45" prop="id" />
       <el-table-column
@@ -102,7 +99,6 @@
 </style>
 
 <script>
-import elColumnsSize from '@/directive/el-table-columns-size'
 import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page'
 import resizeMixin from './pageResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
@@ -112,7 +108,7 @@ import deepCopy from 'deep-copy'
 export default {
   // name: constants_program.P_SYS_PAGES, // 页面id，和router中的name需要一致，作为缓存
   components: { Pagination, editDialog },
-  directives: { elColumnsSize },
+  directives: { },
   mixins: [resizeMixin],
   props: {
     // 自己作为弹出框时的参数

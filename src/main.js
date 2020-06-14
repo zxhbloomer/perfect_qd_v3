@@ -46,8 +46,6 @@ import RouterTab from '@/components/RouterTab/install'
 import ExTable from '@/components/ExTable'
 import ExTableColumn from '@/components/ExTableColumn'
 Vue.use(RouterTab)
-Vue.use(ExTable)
-Vue.use(ExTableColumn)
 
 Vue.use(commonFunction)
 Vue.use(common_columns)
@@ -60,6 +58,13 @@ Vue.prototype.GLOBAL = global
 Vue.use(EventProxy)
 
 Vue.use(Element, {
+  size: Cookies.get('size') || 'mini' // set element-ui default size
+})
+/** 扩展的table和tablecolumn必须在，element下面，否则没有效果 */
+Vue.use(ExTable, {
+  size: Cookies.get('size') || 'mini' // set element-ui default size
+})
+Vue.use(ExTableColumn, {
   size: Cookies.get('size') || 'mini' // set element-ui default size
 })
 

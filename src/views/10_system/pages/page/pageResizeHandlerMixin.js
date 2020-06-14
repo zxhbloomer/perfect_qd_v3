@@ -6,7 +6,7 @@ export default {
   beforeMount() {
     window.addEventListener('resize', this.resizeHandler)
   },
-  async mounted() {
+  mounted() {
     this.setUIheight()
   },
   created() {
