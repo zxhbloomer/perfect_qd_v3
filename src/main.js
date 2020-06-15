@@ -31,7 +31,6 @@ import * as filters from './filters' // global filters
  */
 
 // add by zxh
-import common_columns from './common/columns/columns'
 import commonFunction from './common/commonFunction'
 import constants_para from './common/constants/constants_para'
 import constants_type from './common/constants/constants_dict'
@@ -47,7 +46,6 @@ import ExTable from '@/components/ExTable'
 Vue.use(RouterTab)
 
 Vue.use(commonFunction)
-Vue.use(common_columns)
 Vue.prototype.CONSTANTS = constants_type
 Vue.prototype.PROGRAMS = constants_program
 Vue.prototype.EMITS = constants_emits

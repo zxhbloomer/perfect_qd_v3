@@ -1,6 +1,6 @@
 import { Table } from 'element-ui'
 
-import { getColumnsSizeApi } from '@/api/00_common/colums_size'
+import { getColumnsSizeApi, saveColumnsSizeApi } from '@/api/00_common/colums_size'
 
 export default {
   name: 'ElTable',
@@ -45,6 +45,29 @@ export default {
   updated() {
   },
   methods: {
+
+    // 设置表格上的列宽度，如果有数据
+    saveColumnsSize(table_obj, page_code, column) {
+      // 获取当前列的index
+      let column_index = 0
+      for (var i = 0; i < table_obj.columns.length; i++) {
+        if (table_obj.columns[i].id === column.id) {
+          column_index = i
+          break
+        }
+      }
+      // 获取数据
+      saveColumnsSizeApi({ page_code: page_code,
+        column_label: column.label,
+        column_property: column.property,
+        column_index: column_index,
+        type: this.type,
+        min_width: column.minWidth,
+        real_width: column.realWidth
+      }).then(response => {
+      }).finally(() => {
+      })
+    },
     // 调整列宽方法
     setColumnsSize(table_object, page_code, table_type) {
       // 获取数据

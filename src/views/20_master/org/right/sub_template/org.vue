@@ -3,6 +3,7 @@
     <el-table
       ref="dataSubmitForm"
       v-loading="settings.listLoading"
+      type="org"
       :data="dataJson.listData"
       :element-loading-text="'正在拼命加载中...'"
       element-loading-background="rgba(255, 255, 255, 0.5)"
@@ -83,7 +84,7 @@ import { getListApi } from '@/api/20_master/org/org'
 import deepCopy from 'deep-copy'
 
 export default {
-  name: 'P00000173', // 页面id，和router中的name需要一致，作为缓存
+  // name: 'P00000173', // 页面id，和router中的name需要一致，作为缓存
   components: { },
   directives: { elDragDialog },
   mixins: [],
@@ -363,6 +364,8 @@ export default {
     }
   },
   created() {
+    // 作为独立页面，通过route路由打开时
+    this.$options.name = this.$route.name
     this.initShow()
   },
   mounted() {

@@ -3,6 +3,7 @@
     <el-table
       ref="multipleTable"
       v-loading="settings.listLoading"
+      type="org_group"
       :data="dataJson.listData"
       :element-loading-text="'正在拼命加载中...'"
       element-loading-background="rgba(255, 255, 255, 0.5)"
