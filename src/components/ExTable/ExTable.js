@@ -40,6 +40,7 @@ export default {
     }
     // 调用调整列宽方法
     this.setColumnsSize($table, page_code, table_type)
+    $table.doLayout()
   },
   updated() {
   },
@@ -55,6 +56,7 @@ export default {
           //   }
           // }
           table_object.columns[item.column_index].width = item.real_width
+          table_object.columns[item.column_index].realWidth = item.real_width
         }
       }).finally(() => {
         table_object.doLayout()

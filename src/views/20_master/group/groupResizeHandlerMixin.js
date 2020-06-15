@@ -7,7 +7,6 @@ export default {
       this.$options.name = this.PROGRAMS.P_DIALOG_GROUP
     } else {
       // 作为独立页面，通过route路由打开时
-      debugger
       this.$options.name = this.$route.name
     }
   },
