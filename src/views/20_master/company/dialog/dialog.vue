@@ -34,7 +34,6 @@ import elDragDialog from '@/directive/el-drag-dialog'
 import currentDialog from '@/views/20_master/company/company'
 
 export default {
-  name: 'COM000010',
   components: { currentDialog },
   directives: { elDragDialog },
   props: {

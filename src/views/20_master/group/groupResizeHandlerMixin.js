@@ -4,7 +4,7 @@ export default {
     // 设置页面的name 页面id，和router中的name需要一致，作为缓存
     if (this.meDialogStatus) {
       // 作为弹出框时
-      this.$options.name = this.PROGRAMS.P_DIALOG_GROUP
+      this.$options.name = this.PROGRAMS.D_GROUP_DIALOG
     } else {
       // 作为独立页面，通过route路由打开时
       this.$options.name = this.$route.name

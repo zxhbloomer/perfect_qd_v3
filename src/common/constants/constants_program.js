@@ -7,17 +7,22 @@ const P_ORG_RIGHT_POSITION = 'P00000177'
 const P_ORG_RIGHT_STAFF = 'P00000178'
 /** 岗位 */
 const P_POSITION = 'P00000160'
+const D_POSITION_DIALOG = 'D00000160'
 /** 部门 */
 const P_DEPT = 'P00000150'
+const D_DEPT_DIALOG = 'D00000150'
 /** 员工 */
 const P_STAFF = 'P00000140'
+const D_STAFF_DIALOG = 'D00000140'
 /** 地址簿 */
 const P_ADDRESS = 'P00000130'
+const D_ADDRESS = 'D00000130'
 /** 企业信息 */
 const P_COMPANY = 'P00000110'
+const D_COMPANY_DIALOG = 'D00000110'
 /** 集团信息 */
 const P_GROUP = 'P00000100'
-const P_DIALOG_GROUP = 'D00000100'
+const D_GROUP_DIALOG = 'D00000100'
 /** 菜单管理 */
 const P_MENU = 'P00000120'
 /** 租户管理 */
@@ -55,17 +60,22 @@ export default {
   P_ORG_RIGHT_STAFF,
   /** 岗位 */
   P_POSITION,
+  D_POSITION_DIALOG,
   /** 部门 */
   P_DEPT,
+  D_DEPT_DIALOG,
   /** 员工 */
   P_STAFF,
+  D_STAFF_DIALOG,
   /** 地址簿 */
   P_ADDRESS,
+  D_ADDRESS,
   /** 企业信息 */
   P_COMPANY,
+  D_COMPANY_DIALOG,
   /** 集团信息 */
   P_GROUP,
-  P_DIALOG_GROUP,
+  D_GROUP_DIALOG,
   /** 菜单管理 */
   P_MENU,
   /** 租户管理 */
