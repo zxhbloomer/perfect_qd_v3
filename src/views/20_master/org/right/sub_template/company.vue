@@ -214,6 +214,7 @@ export default {
     }
   },
   created() {
+    this.$options.name = this.PROGRAMS.P_ORG_RIGHT_COMPANY
     this.initShow()
   },
   mounted() {

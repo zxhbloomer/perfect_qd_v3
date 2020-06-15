@@ -144,7 +144,6 @@ import editDialog from '@/views/20_master/position/dialog/edit'
 import deepCopy from 'deep-copy'
 
 export default {
-  // name: 'P00000177', // 页面id，和router中的name需要一致，作为缓存
   components: { Pagination, setPositionDialog, editDialog },
   directives: { },
   mixins: [],
@@ -226,6 +225,7 @@ export default {
     }
   },
   created() {
+    this.$options.name = this.PROGRAMS.P_ORG_RIGHT_POSITION
     // 因为全局事件已经进行了查询，所以此处页面查询就不需要了
     // this.initShow()
   },

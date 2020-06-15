@@ -191,6 +191,7 @@ export default {
     }
   },
   created() {
+    this.$options.name = this.PROGRAMS.P_ORG_RIGHT_DEPT
     this.initShow()
   },
   mounted() {

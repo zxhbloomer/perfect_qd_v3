@@ -82,7 +82,7 @@ import staffTemplate from '@/views/20_master/org/right/sub_template/staff'
 import deepCopy from 'deep-copy'
 
 export default {
-  name: 'P00000172', // 页面id，和router中的name需要一致，作为缓存
+  // name: 'P00000172', // 页面id，和router中的name需要一致，作为缓存
   components: { orgTemplate, groupTemplate, companyTemplate, deptTemplate, positionTemplate, staffTemplate },
   directives: { elDragDialog },
   props: {

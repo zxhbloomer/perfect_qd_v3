@@ -113,7 +113,6 @@ import editDialog from '@/views/20_master/group/dialog/edit'
 import deepCopy from 'deep-copy'
 
 export default {
-  // name: 'P00000174', // 页面id，和router中的name需要一致，作为缓存
   components: { Pagination, editDialog },
   directives: { elDragDialog },
   mixins: [],
@@ -186,6 +185,7 @@ export default {
     }
   },
   created() {
+    this.$options.name = this.PROGRAMS.P_ORG_RIGHT_GROUP
     this.initShow()
   },
   mounted() {

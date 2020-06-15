@@ -1,5 +1,10 @@
 /** 组织机构 */
 const P_ORG = 'P00000170'
+const P_ORG_RIGHT_GROUP = 'P00000174'
+const P_ORG_RIGHT_COMPANY = 'P00000175'
+const P_ORG_RIGHT_DEPT = 'P00000176'
+const P_ORG_RIGHT_POSITION = 'P00000177'
+const P_ORG_RIGHT_STAFF = 'P00000178'
 /** 岗位 */
 const P_POSITION = 'P00000160'
 /** 部门 */
@@ -43,6 +48,11 @@ const P_SYS_PAGES = 'P00000200'
 export default {
   /** 组织机构 */
   P_ORG,
+  P_ORG_RIGHT_GROUP,
+  P_ORG_RIGHT_COMPANY,
+  P_ORG_RIGHT_DEPT,
+  P_ORG_RIGHT_POSITION,
+  P_ORG_RIGHT_STAFF,
   /** 岗位 */
   P_POSITION,
   /** 部门 */
