@@ -24,7 +24,7 @@ export default {
     if (this.setColumnSize) {
       // 设置拖动列宽的事件
       this.$on('header-dragend', function(newWidth, oldWidth, column, event) {
-        this.saveColumnsSize(this.$parent.$options.name, column)
+        this.saveColumnsSize(this, this.$parent.$options.name, column)
       })
     }
   },
@@ -38,24 +38,26 @@ export default {
     if (this.type) {
       table_type = this.type
     }
-    // 调用
-    this.setColumnsSize($table, page_code, table_type, $table)
+    // 调用调整列宽方法
+    this.setColumnsSize($table, page_code, table_type)
   },
   updated() {
   },
   methods: {
-    setColumnsSize(table_object, page_code, table_type, tableObj) {
+    // 调整列宽方法
+    setColumnsSize(table_object, page_code, table_type) {
       // 获取数据
       getColumnsSizeApi({ page_code: page_code, type: table_type }).then(response => {
         for (const item of response.data) {
-          for (const column of table_object.columns) {
-            if (item.column_id === column.id) {
-              column.width = item.real_width
-            }
-          }
+          // for (const column of table_object.columns) {
+          //   if (item.column_id === column.id) {
+          //     column.width = item.real_width
+          //   }
+          // }
+          table_object.columns[item.column_index].width = item.real_width
         }
       }).finally(() => {
-        tableObj.doLayout()
+        table_object.doLayout()
       })
     }
   }

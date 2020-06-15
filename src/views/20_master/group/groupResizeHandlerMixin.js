@@ -1,8 +1,15 @@
 // add by zxh
 export default {
-  beforeCreate() {
+  created() {
     // 设置页面的name 页面id，和router中的name需要一致，作为缓存
-    this.$options.name = this.$route.name
+    if (this.meDialogStatus) {
+      // 作为弹出框时
+      this.$options.name = this.PROGRAMS.P_DIALOG_GROUP
+    } else {
+      // 作为独立页面，通过route路由打开时
+      debugger
+      this.$options.name = this.$route.name
+    }
   },
   beforeMount() {
     window.addEventListener('resize', this.resizeHandler)

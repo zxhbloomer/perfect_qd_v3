@@ -12,6 +12,7 @@ const P_ADDRESS = 'P00000130'
 const P_COMPANY = 'P00000110'
 /** 集团信息 */
 const P_GROUP = 'P00000100'
+const P_DIALOG_GROUP = 'D00000100'
 /** 菜单管理 */
 const P_MENU = 'P00000120'
 /** 租户管理 */
@@ -54,6 +55,7 @@ export default {
   P_COMPANY,
   /** 集团信息 */
   P_GROUP,
+  P_DIALOG_GROUP,
   /** 菜单管理 */
   P_MENU,
   /** 租户管理 */
