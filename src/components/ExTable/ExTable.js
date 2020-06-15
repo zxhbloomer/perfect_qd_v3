@@ -38,6 +38,7 @@ export default {
     if (this.type) {
       table_type = this.type
     }
+
     // 调用调整列宽方法
     this.setColumnsSize($table, page_code, table_type)
     $table.doLayout()
