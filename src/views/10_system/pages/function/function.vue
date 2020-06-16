@@ -11,7 +11,7 @@
         <el-input v-model.trim="dataJson.searchForm.name" clearable placeholder="页面名称" />
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.component" clearable placeholder="页面地址" />
+        <el-input v-model.trim="dataJson.searchForm.component" clearable placeholder="页面编号" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" plain icon="el-icon-search" @click="handleSearch">查询</el-button>
