@@ -49,6 +49,8 @@ const P_VUE_SETTING = 'P00000190'
 
 /** 页面维护 */
 const P_SYS_PAGES = 'P00000200'
+/** 页面按钮维护 */
+const P_SYS_PAGE_FUNCTIONS = 'P00000210'
 
 export default {
   /** 组织机构 */
@@ -99,5 +101,7 @@ export default {
   /** VUE Name 页面编号维护 */
   P_VUE_SETTING,
   /** 页面维护 */
-  P_SYS_PAGES
+  P_SYS_PAGES,
+  /** 页面按钮维护 */
+  P_SYS_PAGE_FUNCTIONS
 }

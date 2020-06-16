@@ -205,6 +205,12 @@ export const asyncRoutes = [
             component: () => import('@/views/10_system/pages/page/page'),
             name: 'P00000200',
             meta: { title: '页面维护' }
+          },
+          {
+            path: 'page_fun',
+            component: () => import('@/views/10_system/pages/function/function'),
+            name: 'P00000210',
+            meta: { title: '页面按钮维护' }
           }
         ]
       },
