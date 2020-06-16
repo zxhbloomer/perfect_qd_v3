@@ -87,7 +87,7 @@
 
 import constants_para from '@/common/constants/constants_para'
 import elDragDialog from '@/directive/el-drag-dialog'
-import { updateApi, insertApi } from '@/api/10_system/pages/page'
+import { updateApi, insertApi } from '@/api/10_system/pages/function'
 import deepCopy from 'deep-copy'
 
 export default {
