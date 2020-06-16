@@ -11,7 +11,10 @@
         <el-input v-model.trim="dataJson.searchForm.name" clearable placeholder="页面名称" />
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.component" clearable placeholder="页面编号" />
+        <el-input v-model.trim="dataJson.searchForm.code" clearable placeholder="页面编号" />
+      </el-form-item>
+      <el-form-item label="">
+        <el-input v-model.trim="dataJson.searchForm.component" clearable placeholder="页面地址" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" plain icon="el-icon-search" @click="handleSearch">查询</el-button>
@@ -99,13 +102,15 @@
 </style>
 
 <script>
-import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page_function'
+import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page'
 import resizeMixin from './functionResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
+import editDialog from '@/views/10_system/pages/page/dialog/edit'
 import deepCopy from 'deep-copy'
 
 export default {
-  components: { Pagination },
+  // name: constants_program.P_SYS_PAGES, // 页面id，和router中的name需要一致，作为缓存
+  components: { Pagination, editDialog },
   directives: { },
   mixins: [resizeMixin],
   props: {
