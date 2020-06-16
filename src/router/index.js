@@ -201,7 +201,7 @@ export const asyncRoutes = [
         meta: { title: '功能操作管理', icon: 'pages', noCache: true },
         children: [
           {
-            path: 'pages',
+            path: 'funs',
             component: () => import('@/views/10_system/pages/function/function'),
             name: 'P00000220',
             meta: { title: '按钮维护' }

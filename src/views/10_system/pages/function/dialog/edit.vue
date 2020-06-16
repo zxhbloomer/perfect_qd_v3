@@ -32,34 +32,16 @@
       <br>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="页面编号：" prop="code">
+          <el-form-item label="按钮编号：" prop="code">
             <el-input ref="refFocusOne" v-model.trim="dataJson.tempJson.code" controls-position="right" clearable show-word-limit :maxlength="dataJson.inputSettings.maxLength.code" :disabled="isUpdateModel || isViewModel" />
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="页面名称：" prop="name">
+          <el-form-item label="按钮名称：" prop="name">
             <el-input ref="refFocusTwo" v-model.trim="dataJson.tempJson.name" clearable show-word-limit :maxlength="dataJson.inputSettings.maxLength.name" :disabled="isViewModel" />
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
-        <el-col :span="12">
-          <el-form-item label="菜单中显示名称：" prop="meta_title">
-            <el-input v-model.trim="dataJson.tempJson.meta_title" controls-position="right" clearable show-word-limit :maxlength="dataJson.inputSettings.maxLength.meta_title" :disabled="isViewModel" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="菜单icon：" prop="meta_icon">
-            <el-input v-model.trim="dataJson.tempJson.meta_icon" clearable show-word-limit :maxlength="dataJson.inputSettings.maxLength.meta_icon" :disabled="isViewModel" />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-form-item label="页面地址：" prop="component">
-        <el-input v-model.trim="dataJson.tempJson.component" clearable show-word-limit :maxlength="dataJson.inputSettings.maxLength.component" :disabled="isViewModel" />
-      </el-form-item>
-      <el-form-item label="权限标识：" prop="perms">
-        <el-input v-model.trim="dataJson.tempJson.perms" clearable show-word-limit :maxlength="dataJson.inputSettings.maxLength.perms" :disabled="isViewModel" />
-      </el-form-item>
       <el-form-item label="描述：" prop="descr">
         <el-input v-model.trim="dataJson.tempJson.descr" clearable show-word-limit type="textarea" :maxlength="dataJson.inputSettings.maxLength.descr" :disabled="isViewModel" />
       </el-form-item>

@@ -8,13 +8,10 @@
       class="floatRight"
     >
       <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.name" clearable placeholder="页面名称" />
+        <el-input v-model.trim="dataJson.searchForm.name" clearable placeholder="按钮名称" />
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.code" clearable placeholder="页面编号" />
-      </el-form-item>
-      <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.component" clearable placeholder="页面地址" />
+        <el-input v-model.trim="dataJson.searchForm.code" clearable placeholder="按钮编号" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" plain icon="el-icon-search" @click="handleSearch">查询</el-button>
@@ -29,7 +26,6 @@
       <el-button :disabled="!settings.btnShowStatus.showUpdate" type="primary" icon="el-icon-edit-outline" :loading="settings.loading" @click="handleUpdate">修改</el-button>
       <el-button :disabled="!settings.btnShowStatus.showCopyInsert" type="primary" icon="el-icon-camera-solid" :loading="settings.loading" @click="handleCopyInsert">复制新增</el-button>
       <el-button :disabled="!settings.btnShowStatus.showExport" type="primary" icon="el-icon-circle-close" :loading="settings.listLoading" @click="handleRealyDelete">物理删除</el-button>
-      <el-button :disabled="!settings.btnShowStatus.showExport" type="primary" icon="el-icon-s-management" :loading="settings.loading" @click="handleExport">导出</el-button>
       <el-button :disabled="!settings.btnShowStatus.showUpdate" type="primary" icon="el-icon-info" :loading="settings.loading" @click="handleView">查看</el-button>
     </el-button-group>
     <el-table
@@ -62,10 +58,9 @@
           <span>{{ (dataJson.searchForm.pageCondition.current - 1) * dataJson.searchForm.pageCondition.size + scope.$index + 1 }}</span>
         </template>
       </el-table-column>
-      <el-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
+      <el-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="code" label="按钮编号" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="name" label="按钮名称" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="descr" label="描述" />
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
       <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" min-width="200" prop="u_time" label="更新时间">
         <template v-slot="scope">
@@ -102,10 +97,10 @@
 </style>
 
 <script>
-import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page'
+import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/function'
 import resizeMixin from './functionResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
-import editDialog from '@/views/10_system/pages/page/dialog/edit'
+import editDialog from '@/views/10_system/pages/function/dialog/edit'
 import deepCopy from 'deep-copy'
 
 export default {

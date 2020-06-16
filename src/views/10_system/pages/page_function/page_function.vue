@@ -102,10 +102,11 @@
 import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page_function'
 import resizeMixin from './page_functionResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
+import editDialog from '@/views/10_system/pages/page_function/dialog/edit'
 import deepCopy from 'deep-copy'
 
 export default {
-  components: { Pagination },
+  components: { Pagination, editDialog },
   directives: { },
   mixins: [resizeMixin],
   props: {
