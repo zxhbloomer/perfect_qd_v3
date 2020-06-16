@@ -208,7 +208,7 @@ export const asyncRoutes = [
           },
           {
             path: 'page_fun',
-            component: () => import('@/views/10_system/pages/function/function'),
+            component: () => import('@/views/10_system/pages/page_function/function'),
             name: 'P00000210',
             meta: { title: '页面按钮维护' }
           }

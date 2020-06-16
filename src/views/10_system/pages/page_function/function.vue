@@ -99,7 +99,7 @@
 </style>
 
 <script>
-import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/function'
+import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/page_function'
 import resizeMixin from './functionResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import deepCopy from 'deep-copy'
