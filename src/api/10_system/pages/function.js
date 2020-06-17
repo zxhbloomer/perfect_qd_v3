@@ -47,3 +47,15 @@ export function realDeleteSelectionApi(data) {
     data
   })
 }
+
+/**
+ * 排序逻辑
+ * @param {*} data
+ */
+export function saveSortApi(data) {
+  return request({
+    url: '/api/v1/sys/funs/save_sort',
+    method: 'post',
+    data
+  })
+}

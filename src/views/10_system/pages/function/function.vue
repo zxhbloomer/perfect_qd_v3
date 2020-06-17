@@ -60,6 +60,15 @@
       </el-table-column>
       <el-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="code" label="按钮编号" />
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="name" label="按钮名称" />
+      <el-table-column show-overflow-tooltip min-width="80" prop="sort" label="排序">
+        <template v-slot="scope">
+          <span>{{ scope.row.sort }}</span>
+          <div class="floatRight">
+            <el-button class="el-icon-top" type="text" style="font-size: 16px" :disabled="scope.row.sort===scope.row.min_sort" @click="handleSortUp(scope, scope.$index)" />
+            <el-button class="el-icon-bottom" type="text" style="font-size: 16px" :disabled="scope.row.sort===scope.row.max_sort" @click="handleSortDown(scope, scope.$index)" />
+          </div>
+        </template>
+      </el-table-column>
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="descr" label="描述" />
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
       <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" min-width="200" prop="u_time" label="更新时间">
@@ -97,7 +106,7 @@
 </style>
 
 <script>
-import { getListApi, realDeleteSelectionApi, exportAllApi, exportSelectionApi } from '@/api/10_system/pages/function'
+import { getListApi, realDeleteSelectionApi, saveSortApi } from '@/api/10_system/pages/function'
 import resizeMixin from './functionResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import editDialog from '@/views/10_system/pages/function/dialog/edit'
@@ -273,30 +282,6 @@ export default {
         this.handleExportSelectionData()
       }
     },
-    // 全部数据导出
-    handleExportAllData() {
-      // loading
-      this.settings.loading = true
-      // 开始导出
-      exportAllApi(this.dataJson.searchForm).then(response => {
-      }).finally(() => {
-        this.settings.loading = false
-      })
-    },
-    // 部分数据导出
-    handleExportSelectionData() {
-      // loading
-      this.settings.loading = true
-      const selectionJson = []
-      this.dataJson.multipleSelection.forEach(function(value, index, array) {
-        selectionJson.push({ 'id': value.id })
-      })
-      // 开始导出
-      exportSelectionApi(selectionJson).then(response => {
-      }).finally(() => {
-        this.settings.loading = false
-      })
-    },
     handleCurrentChange(row) {
       this.dataJson.currentJson = Object.assign({}, row) // copy obj
       this.dataJson.currentJson.index = this.getRowIndex(row)
@@ -442,6 +427,90 @@ export default {
         this.settings.listLoading = false
       })
     },
+    // ------------------排序 start--------------------
+    // 排序上
+    handleSortUp(scope, index) {
+      // loading
+      this.settings.listLoading = true
+      // 1：位置互换，数组对象中
+      const index1 = index
+      const index2 = index - 1
+      this.dataJson.listData.splice(index2, 1, ...this.dataJson.listData.splice(index1, 1, this.dataJson.listData[index2]))
+      // 2：计算sort
+      this.doReIndexSort(scope.row.parent_id)
+      // 3：提交更新
+      this.doSortUpdate(this.getSortedDataList(scope.row.parent_id))
+    },
+    // 排序下
+    handleSortDown(scope, index) {
+      // loading
+      this.settings.listLoading = true
+      // 1：位置互换，数组对象中
+      const index1 = index
+      const index2 = index + 1
+      this.dataJson.listData.splice(index2, 1, ...this.dataJson.listData.splice(index1, 1, this.dataJson.listData[index2]))
+      // 2：计算sort
+      this.doReIndexSort(scope.row.parent_id)
+      // 3：提交更新
+      this.doSortUpdate(this.getSortedDataList(scope.row.parent_id), scope.row.parent_id)
+    },
+    // sort重新计算
+    doReIndexSort(parent_id) {
+      this.dataJson.listData.forEach(function(item, index, arr) {
+        if (item.parent_id === parent_id) {
+          // 开始排序
+          item.sort = index
+        }
+      })
+    },
+    // sort重新计算
+    getSortedDataList(parent_id) {
+      const rtnList = []
+      this.dataJson.listData.forEach(function(item, index, arr) {
+        if (item.parent_id === parent_id) {
+          rtnList.push(item)
+        }
+      })
+      return rtnList
+    },
+    // 更新逻辑
+    doSortUpdate(listData, parent_id) {
+      saveSortApi(listData).then((_data) => {
+        this.$notify({
+          title: '更新处理成功',
+          message: _data.message,
+          type: 'success',
+          duration: this.settings.duration
+        })
+        // 返回替换json
+        this.doUpdateSortJson(_data.data, parent_id)
+        // loading
+        this.settings.listLoading = false
+      }, (_error) => {
+        this.$notify({
+          title: '更新处理失败',
+          message: _error.message,
+          type: 'error',
+          duration: this.settings.duration
+        })
+      }).finally(() => {
+        this.settings.listLoading = false
+      })
+    },
+    // 更新完毕后，把最新的数据更新回去
+    doUpdateSortJson(updatedData, parent_id) {
+      let startIndex = 0
+      this.dataJson.listData.forEach(function(item, index, arr) {
+        if (item.parent_id === parent_id) {
+          // 位置互换，数组对象中
+          const index1 = index
+          const index2 = startIndex
+          arr.splice(index1, 1, ...updatedData.splice(index1, 1, updatedData[index2]))
+          startIndex++
+        }
+      })
+    },
+    // ------------------排序 end--------------------
     // ------------------编辑弹出框 start--------------------
     handleCloseDialogOneOk(val) {
       switch (this.popSettings.one.props.dialogStatus) {
