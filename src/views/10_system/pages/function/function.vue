@@ -67,8 +67,6 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip min-width="150" prop="max_sort" label="max_sort" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip min-width="150" prop="min_sort" label="min_sort" />
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip min-width="150" prop="descr" label="描述" />
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip min-width="150" prop="u_name" label="更新人" />
       <el-table-column header-align="center" show-overflow-tooltip min-width="200" prop="u_time" label="更新时间">
