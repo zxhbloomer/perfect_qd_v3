@@ -6,7 +6,7 @@ import request from '@/utils/request'
  */
 export function getListApi(query) {
   return request({
-    url: '/api/v1/sys/pages/list',
+    url: '/api/v1/sys/pages_fun/list',
     method: 'post',
     data: query
   })
@@ -18,7 +18,7 @@ export function getListApi(query) {
  */
 export function updateApi(data) {
   return request({
-    url: '/api/v1/sys/pages/save',
+    url: '/api/v1/sys/pages_fun/save',
     method: 'post',
     data
   })
@@ -30,7 +30,7 @@ export function updateApi(data) {
  */
 export function insertApi(data) {
   return request({
-    url: '/api/v1/sys/pages/insert',
+    url: '/api/v1/sys/pages_fun/insert',
     method: 'post',
     data
   })
@@ -42,7 +42,7 @@ export function insertApi(data) {
  */
 export function realDeleteSelectionApi(data) {
   return request({
-    url: '/api/v1/sys/pages/delete',
+    url: '/api/v1/sys/pages_fun/delete',
     method: 'post',
     data
   })

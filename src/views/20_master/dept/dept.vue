@@ -75,18 +75,18 @@
     >
       <el-table-column v-if="!meDialogStatus" type="selection" width="45" prop="id" />
       <el-table-column type="index" width="45" label="No" />
-      <el-table-column v-if="!meDialogStatus" show-overflow-tooltip sortable="custom" min-width="280" :sort-orders="settings.sortOrders" prop="group_full_simple_name" label="集团信息" />
-      <el-table-column v-if="!meDialogStatus" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="company_simple_name" label="企业信息" />
-      <el-table-column v-if="!meDialogStatus" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="parent_dept_simple_name" label="上级部门" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="name" label="部门名称" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="simple_name" label="部门简称" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="170" :sort-orders="settings.sortOrders" prop="code" label="部门编号" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="handler_id_name" label="部门主管" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="sub_handler_id_name" label="部门副主管" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="leader_id_name" label="上级主管领导" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="response_leader_id_name" label="上级分管领导" />
-      <el-table-column show-overflow-tooltip min-width="150" prop="descr" label="描述" />
-      <el-table-column min-width="90" :sort-orders="settings.sortOrders" label="删除">
+      <el-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" min-width="280" :sort-orders="settings.sortOrders" prop="group_full_simple_name" label="集团信息" />
+      <el-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="company_simple_name" label="企业信息" />
+      <el-table-column v-if="!meDialogStatus" header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="parent_dept_simple_name" label="上级部门" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="name" label="部门名称" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="simple_name" label="部门简称" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="170" :sort-orders="settings.sortOrders" prop="code" label="部门编号" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="handler_id_name" label="部门主管" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="sub_handler_id_name" label="部门副主管" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="leader_id_name" label="上级主管领导" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="response_leader_id_name" label="上级分管领导" />
+      <el-table-column header-align="center" show-overflow-tooltip min-width="150" prop="descr" label="描述" />
+      <el-table-column header-align="center" min-width="90" :sort-orders="settings.sortOrders" label="删除">
         <template v-slot:header>
           <span>
             删除
@@ -119,8 +119,8 @@
           </el-tooltip>
         </template>
       </el-table-column>
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="90" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
-      <el-table-column show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="90" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
+      <el-table-column header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="u_time" label="更新时间">
         <template v-slot="scope">
           {{ formatDateTime(scope.row.u_time) }}
         </template>
