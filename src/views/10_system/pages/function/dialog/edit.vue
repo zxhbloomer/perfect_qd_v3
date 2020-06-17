@@ -13,7 +13,7 @@
     :show-close="PARAMETERS.DIALOG_SHOW_CLOSE"
     :append-to-body="true"
     :modal-append-to-body="true"
-    width="700px"
+    width="900px"
     destroy-on-close
   >
     <el-form
@@ -131,12 +131,8 @@ export default {
         tempJson: null,
         inputSettings: {
           maxLength: {
-            name: 20,
-            code: 20,
-            component: 100,
-            meta_title: 20,
-            meta_icon: 20,
-            perms: 20,
+            name: 30,
+            code: 30,
             descr: 200
           }
         }
