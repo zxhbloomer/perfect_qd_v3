@@ -14,7 +14,7 @@
       :show-close="PARAMETERS.DIALOG_SHOW_CLOSE"
       :append-to-body="true"
       :modal-append-to-body="true"
-      width="800px"
+      width="950px"
       destroy-on-close
     >
       <el-form

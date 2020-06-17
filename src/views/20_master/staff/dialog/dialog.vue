@@ -10,7 +10,7 @@
     :show-close="false"
     :append-to-body="true"
     :modal-append-to-body="false"
-    width="1100px"
+    width="1300px"
     destroy-on-close
     top="5vh"
   >
