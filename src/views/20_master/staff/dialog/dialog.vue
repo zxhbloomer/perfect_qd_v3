@@ -14,7 +14,7 @@
     destroy-on-close
     top="5vh"
   >
-    <my-page ref="dialogRef" @rowDbClick="handleRowDbClick" />
+    <my-page ref="dialogRef" :me-dialog-status="visible" @rowDbClick="handleRowDbClick" />
     <div slot="footer" class="dialog-footer">
       <el-divider />
       <el-button plain @click="handleDoCancel()">取消</el-button>

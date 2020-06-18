@@ -41,7 +41,7 @@ export default {
 
         // 判断是否是弹出框
         if (this.meDialogStatus) {
-          rtnVal = rtnVal - 150
+          rtnVal = rtnVal - 170
         }
         // 此处使用的是页面上的值
         this.settings.tableHeight = rtnVal
