@@ -224,8 +224,8 @@ import { getListApi, updateApi, insertApi, exportAllApi, exportSelectionApi, imp
 import resizeMixin from './dicttypeResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import elDragDialog from '@/directive/el-drag-dialog'
-import SimpleUpload from '@/layout/components/00_common/SimpleUpload'
-import DeleteTypeNormal from '@/layout/components/00_common/SelectComponent/SelectComponentDeleteTypeNormal'
+import SimpleUpload from '@/components/00_common/SimpleUpload'
+import DeleteTypeNormal from '@/components/00_common/SelectComponent/SelectComponentDeleteTypeNormal'
 import deepCopy from 'deep-copy'
 
 export default {

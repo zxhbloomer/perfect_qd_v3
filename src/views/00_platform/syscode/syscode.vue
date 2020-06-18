@@ -147,7 +147,7 @@
 <script>
 import constants_program from '@/common/constants/constants_program'
 import { getListApi, updateApi, insertApi } from '@/api/00_platform/syscode/syscode'
-import SelectDict from '@/layout/components/00_common/SelectComponent/SelectDictComponent'
+import SelectDict from '@/components/00_common/SelectComponent/SelectDictComponent'
 import resizeMixin from './syscodeResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import elDragDialog from '@/directive/el-drag-dialog'

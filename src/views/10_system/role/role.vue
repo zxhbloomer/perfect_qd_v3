@@ -271,7 +271,7 @@ import { getListApi, updateApi, insertApi, exportAllApi, exportSelectionApi, imp
 import resizeMixin from './roleResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import elDragDialog from '@/directive/el-drag-dialog'
-import SimpleUpload from '@/layout/components/00_common/SimpleUpload'
+import SimpleUpload from '@/components/00_common/SimpleUpload'
 import deepCopy from 'deep-copy'
 
 export default {

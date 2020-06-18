@@ -197,12 +197,12 @@
 
 import { updateApi, insertApi } from '@/api/20_master/company/company'
 import { getDataByIdApi } from '@/api/20_master/address/address'
-import RadioDict from '@/layout/components/00_common/RedioComponent/RadioDictComponent'
+import RadioDict from '@/components/00_common/RedioComponent/RadioDictComponent'
 import constants_para from '@/common/constants/constants_para'
 import elDragDialog from '@/directive/el-drag-dialog'
 import deepCopy from 'deep-copy'
 import addressDialog from '@/views/20_master/address/dialog/dialog'
-import SelectDict from '@/layout/components/00_common/SelectComponent/SelectDictComponent'
+import SelectDict from '@/components/00_common/SelectComponent/SelectDictComponent'
 
 export default {
   // name: '', // 页面id，和router中的name需要一致，作为缓存
