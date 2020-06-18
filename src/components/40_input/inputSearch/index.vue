@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$emit('onInputSearch', this.dataJson.currentJson)
+      this.$emit('onInputSearch')
     },
     // Placeholder设置
     isPlaceholderShow(val) {

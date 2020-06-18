@@ -51,11 +51,10 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="部门主管：" prop="handler_id">
-              <el-input v-model.trim="popSettings.one.selectedDataJson.name" disabled :placeholder="isPlaceholderShow('请选择')">
-                <el-button slot="append" ref="selectOne" icon="el-icon-search" :disabled="isViewModel" @click="handleStaffDialogClickOne">
-                  选择
-                </el-button>
-              </el-input>
+              <input-search
+                v-model.trim="popSettings.one.selectedDataJson.name"
+                @onInputSearch="handleStaffDialogClickOne"
+              />
             </el-form-item>
           </el-col>
         </el-row>
@@ -63,20 +62,18 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="部门副主管：" prop="sub_handler_id">
-              <el-input v-model.trim="popSettings.two.selectedDataJson.name" disabled :placeholder="isPlaceholderShow('请选择')">
-                <el-button slot="append" ref="selectTwo" icon="el-icon-search" :disabled="isViewModel" @click="handleStaffDialogClickTwo">
-                  选择
-                </el-button>
-              </el-input>
+              <input-search
+                v-model.trim="popSettings.two.selectedDataJson.name"
+                @onInputSearch="handleStaffDialogClickTwo"
+              />
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="上级主管领导：" prop="leader_id">
-              <el-input v-model.trim="popSettings.three.selectedDataJson.name" disabled :placeholder="isPlaceholderShow('请选择')">
-                <el-button slot="append" ref="selectThree" icon="el-icon-search" :disabled="isViewModel" @click="handleStaffDialogClickThree">
-                  选择
-                </el-button>
-              </el-input>
+              <input-search
+                v-model.trim="popSettings.three.selectedDataJson.name"
+                @onInputSearch="handleStaffDialogClickThree"
+              />
             </el-form-item>
           </el-col>
         </el-row>
@@ -84,11 +81,10 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="上级分管领导：" prop="response_leader_id">
-              <el-input v-model.trim="popSettings.four.selectedDataJson.name" disabled :placeholder="isPlaceholderShow('请选择')">
-                <el-button slot="append" ref="selectFour" icon="el-icon-search" :disabled="isViewModel" @click="handleStaffDialogClickFour">
-                  选择
-                </el-button>
-              </el-input>
+              <input-search
+                v-model.trim="popSettings.four.selectedDataJson.name"
+                @onInputSearch="handleStaffDialogClickFour"
+              />
             </el-form-item>
           </el-col>
         </el-row>
@@ -173,10 +169,11 @@ import elDragDialog from '@/directive/el-drag-dialog'
 import { updateApi, insertApi } from '@/api/20_master/dept/dept'
 import deepCopy from 'deep-copy'
 import staffDialog from '@/views/20_master/staff/dialog/dialog'
+import InputSearch from '@/components/40_input/inputSearch'
 
 export default {
   // name: '', // 页面id，和router中的name需要一致，作为缓存
-  components: { staffDialog },
+  components: { staffDialog, InputSearch },
   directives: { elDragDialog },
   mixins: [],
   props: {
@@ -324,11 +321,6 @@ export default {
           this.initViewModel()
           break
       }
-      // 初始化员工选择页面
-      this.initStaffSelectButtonOne()
-      this.initStaffSelectButtonTwo()
-      this.initStaffSelectButtonThree()
-      this.initStaffSelectButtonFour()
       // 初始化watch
       this.setWatch()
       this.settings.loading = false
@@ -573,16 +565,6 @@ export default {
     },
     // --------------弹出查询框：--------------
     // 1
-    // 选择or重置按钮的初始化
-    initStaffSelectButtonOne() {
-      this.$nextTick(() => {
-        if (this.isViewModel) {
-          this.$refs.selectOne.$el.parentElement.className = 'el-input-group__append'
-        } else {
-          this.$refs.selectOne.$el.parentElement.className = 'el-input-group__append el-input-group__append_select'
-        }
-      })
-    },
     handleStaffDialogClickOne() {
       // 选择按钮
       this.popSettings.one.visible = true
@@ -591,23 +573,12 @@ export default {
     handleStaffCloseOkOne(val) {
       this.popSettings.one.selectedDataJson = val
       this.popSettings.one.visible = false
-      this.initStaffSelectButtonOne()
     },
     // 关闭对话框：取消
     handleStaffCloseCancelOne() {
       this.popSettings.one.visible = false
     },
     // 2
-    // 选择or重置按钮的初始化
-    initStaffSelectButtonTwo() {
-      this.$nextTick(() => {
-        if (this.isViewModel) {
-          this.$refs.selectTwo.$el.parentElement.className = 'el-input-group__append'
-        } else {
-          this.$refs.selectTwo.$el.parentElement.className = 'el-input-group__append el-input-group__append_select'
-        }
-      })
-    },
     handleStaffDialogClickTwo() {
       // 选择按钮
       this.popSettings.two.visible = true
@@ -616,23 +587,12 @@ export default {
     handleStaffCloseOkTwo(val) {
       this.popSettings.two.selectedDataJson = val
       this.popSettings.two.visible = false
-      this.initStaffSelectButtonTwo()
     },
     // 关闭对话框：取消
     handleStaffCloseCancelTwo() {
       this.popSettings.two.visible = false
     },
     // 3
-    // 选择or重置按钮的初始化
-    initStaffSelectButtonThree() {
-      this.$nextTick(() => {
-        if (this.isViewModel) {
-          this.$refs.selectThree.$el.parentElement.className = 'el-input-group__append'
-        } else {
-          this.$refs.selectThree.$el.parentElement.className = 'el-input-group__append el-input-group__append_select'
-        }
-      })
-    },
     handleStaffDialogClickThree() {
       // 选择按钮
       this.popSettings.three.visible = true
@@ -641,23 +601,12 @@ export default {
     handleStaffCloseOkThree(val) {
       this.popSettings.three.selectedDataJson = val
       this.popSettings.three.visible = false
-      this.initStaffSelectButtonThree()
     },
     // 关闭对话框：取消
     handleStaffCloseCancelThree() {
       this.popSettings.three.visible = false
     },
     // 4
-    // 选择or重置按钮的初始化
-    initStaffSelectButtonFour() {
-      this.$nextTick(() => {
-        if (this.isViewModel) {
-          this.$refs.selectFour.$el.parentElement.className = 'el-input-group__append'
-        } else {
-          this.$refs.selectFour.$el.parentElement.className = 'el-input-group__append el-input-group__append_select'
-        }
-      })
-    },
     handleStaffDialogClickFour() {
       // 选择按钮
       this.popSettings.four.visible = true
@@ -666,7 +615,6 @@ export default {
     handleStaffCloseOkFour(val) {
       this.popSettings.four.selectedDataJson = val
       this.popSettings.four.visible = false
-      this.initStaffSelectButtonFour()
     },
     // 关闭对话框：取消
     handleStaffCloseCancelFour() {
