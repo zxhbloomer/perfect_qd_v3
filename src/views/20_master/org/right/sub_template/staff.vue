@@ -149,7 +149,7 @@
 // import constants_program from '@/common/constants/constants_program'
 import { getStaffTabListApi } from '@/api/20_master/org/org'
 import elDragDialog from '@/directive/el-drag-dialog'
-import DeleteTypeNormal from '@/components/00_common/SelectComponent/SelectComponentDeleteTypeNormal'
+import DeleteTypeNormal from '@/components/00_dict/select/SelectDeleteTypeNormal'
 import deepCopy from 'deep-copy'
 import editDialog from '@/views/20_master/staff/dialog/edit'
 

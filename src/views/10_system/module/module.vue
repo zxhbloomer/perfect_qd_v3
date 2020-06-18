@@ -348,9 +348,9 @@ import resizeMixin from './moduleResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import elDragDialog from '@/directive/el-drag-dialog'
 import resourceDialog from '@/views/10_system/resource/dialog/dialog'
-import SelectDicts from '@/components/00_common/SelectComponent/SelectDictsComponent'
-import SelectDict from '@/components/00_common/SelectComponent/SelectDictComponent'
-import DeleteTypeNormal from '@/components/00_common/SelectComponent/SelectComponentDeleteTypeNormal'
+import SelectDicts from '@/components/00_dict/select/SelectDicts'
+import SelectDict from '@/components/00_dict/select/SelectDict'
+import DeleteTypeNormal from '@/components/00_dict/select/SelectDeleteTypeNormal'
 import deepCopy from 'deep-copy'
 
 export default {

@@ -160,8 +160,8 @@ import { getListApi, exportAllApi, exportSelectionApi, deleteApi } from '@/api/2
 import resizeMixin from './deptResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import elDragDialog from '@/directive/el-drag-dialog'
-import DeleteTypeNormal from '@/components/00_common/SelectComponent/SelectComponentDeleteTypeNormal'
-import SelectDict from '@/components/00_common/SelectComponent/SelectDictComponent'
+import DeleteTypeNormal from '@/components/00_dict/select/SelectDeleteTypeNormal'
+import SelectDict from '@/components/00_dict/select/SelectDict'
 import editDialog from '@/views/20_master/dept/dialog/edit'
 import deepCopy from 'deep-copy'
 

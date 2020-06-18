@@ -349,7 +349,7 @@ import constants_program from '@/common/constants/constants_program'
 import { getCascaderListApi, getListApi, updateApi, addMenuGroupApi, addSubMenuApi, deleteApi, realDeleteSelectionApi } from '@/api/10_system/sysmenu/sysmenu'
 import resizeMixin from './sysmenuResizeHandlerMixin'
 import elDragDialog from '@/directive/el-drag-dialog'
-import SelectDict from '@/components/00_common/SelectComponent/SelectDictComponent'
+import SelectDict from '@/components/00_dict/select/SelectDict'
 import moduleDialog from '@/views/10_system/module/dialog/dialog'
 import deepCopy from 'deep-copy'
 

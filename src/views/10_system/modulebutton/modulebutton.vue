@@ -189,7 +189,7 @@ import resizeMixin from './modulebuttonResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
 import elDragDialog from '@/directive/el-drag-dialog'
 import moduleDialog from '@/views/10_system/module/dialog/dialog'
-import SelectDictGroup from '@/components/00_common/SelectComponent/SelectDictGroupComponent'
+import SelectDictGroup from '@/components/00_dict/select/SelectDictGroup'
 import deepCopy from 'deep-copy'
 
 export default {

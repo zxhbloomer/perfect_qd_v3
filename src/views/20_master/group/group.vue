@@ -163,8 +163,8 @@
 import { getListApi, exportAllApi, exportSelectionApi, deleteApi } from '@/api/20_master/group/group'
 import resizeMixin from './groupResizeHandlerMixin'
 import Pagination from '@/components/Pagination'
-import DeleteTypeNormal from '@/components/00_common/SelectComponent/SelectComponentDeleteTypeNormal'
-import SelectDict from '@/components/00_common/SelectComponent/SelectDictComponent'
+import DeleteTypeNormal from '@/components/00_dict/select/SelectDeleteTypeNormal'
+import SelectDict from '@/components/00_dict/select/SelectDict'
 import editDialog from '@/views/20_master/group/dialog/edit'
 import deepCopy from 'deep-copy'
 

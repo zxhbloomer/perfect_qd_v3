@@ -119,7 +119,7 @@
 import constants_para from '@/common/constants/constants_para'
 import elDragDialog from '@/directive/el-drag-dialog'
 import deepCopy from 'deep-copy'
-import RadioDict from '@/components/00_common/RedioComponent/RadioDictComponent'
+import RadioDict from '@/components/00_dict/redio'
 import { getAreasCascaderApi, getProvincerListApi, getCityListApi, getAreaListApi } from '@/api/00_common/systemArea'
 import { updateApi, insertApi } from '@/api/20_master/address/address'
 
