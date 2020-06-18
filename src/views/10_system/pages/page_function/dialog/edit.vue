@@ -63,6 +63,11 @@
       <el-form-item label="描述：" prop="descr">
         <el-input v-model.trim="dataJson.tempJson.descr" clearable show-word-limit type="textarea" :maxlength="dataJson.inputSettings.maxLength.descr" :disabled="isViewModel" />
       </el-form-item>
+
+      <el-form-item label="描述：" prop="descr">
+        <input-search v-model.trim="dataJson.tempJson.descr" clearable show-word-limit type="textarea" :maxlength="dataJson.inputSettings.maxLength.descr" :disabled="isViewModel" />
+      </el-form-item>
+
       <el-row v-show="settings.dialogStatus === 'update'">
         <el-col :span="12">
           <el-form-item label="更新人：" prop="u_name">
@@ -106,11 +111,12 @@
 import constants_para from '@/common/constants/constants_para'
 import elDragDialog from '@/directive/el-drag-dialog'
 import { updateApi, insertApi } from '@/api/10_system/pages/page'
+import InputSearch from '@/components/40_input/inputSearch'
 import deepCopy from 'deep-copy'
 
 export default {
   // name: '', // 页面id，和router中的name需要一致，作为缓存
-  components: { },
+  components: { InputSearch },
   directives: { elDragDialog },
   mixins: [],
   props: {
