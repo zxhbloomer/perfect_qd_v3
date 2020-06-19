@@ -8,10 +8,10 @@
       class="floatRight"
     >
       <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.name" clearable placeholder="页面名称" />
+        <el-input v-model.trim="dataJson.searchForm.page_name" clearable placeholder="页面名称" />
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model.trim="dataJson.searchForm.component" clearable placeholder="页面编号" />
+        <el-input v-model.trim="dataJson.searchForm.page_code" clearable placeholder="页面编号" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" plain icon="el-icon-search" @click="handleSearch">查询</el-button>
@@ -59,10 +59,12 @@
           <span>{{ (dataJson.searchForm.pageCondition.current - 1) * dataJson.searchForm.pageCondition.size + scope.$index + 1 }}</span>
         </template>
       </el-table-column>
-      <el-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="code" label="页面编号" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="name" label="页面名称" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="component" label="页面地址" />
-      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
+      <el-table-column v-if="!meDialogStatus" :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="120" :sort-orders="settings.sortOrders" prop="page_code" label="页面编号" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="120" :sort-orders="settings.sortOrders" prop="page_name" label="页面名称" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="120" :sort-orders="settings.sortOrders" prop="page_perms" label="页面权限标识" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="120" :sort-orders="settings.sortOrders" prop="function_code" label="按钮编号" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="120" :sort-orders="settings.sortOrders" prop="function_name" label="按钮名称" />
+      <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="200" :sort-orders="settings.sortOrders" prop="perms" label="权限标识" />
       <el-table-column :auto-fit="true" header-align="center" show-overflow-tooltip sortable="custom" min-width="150" :sort-orders="settings.sortOrders" prop="u_name" label="更新人" />
       <el-table-column header-align="center" show-overflow-tooltip sortable="custom" :sort-orders="settings.sortOrders" min-width="200" prop="u_time" label="更新时间">
         <template v-slot="scope">
@@ -457,7 +459,7 @@ export default {
     doInsertModelCallBack(val) {
       if (val.return_flag) {
         this.popSettings.one.visible = false
-
+        debugger
         // 设置到table中绑定的json数据源
         this.dataJson.listData.push(val.data.data)
         this.$notify({

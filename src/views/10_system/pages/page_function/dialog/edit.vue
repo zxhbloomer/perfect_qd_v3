@@ -43,6 +43,13 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="页面权限标识：" prop="page_perms">
+              <el-input v-model.trim="dataJson.tempJson.page_perms" disabled />
+            </el-form-item>
+          </el-col>
+        </el-row>
         <el-alert
           title="按钮信息"
           type="info"
@@ -131,7 +138,7 @@
 
 import constants_para from '@/common/constants/constants_para'
 import elDragDialog from '@/directive/el-drag-dialog'
-import { updateApi, insertApi } from '@/api/10_system/pages/page'
+import { updateApi, insertApi } from '@/api/10_system/pages/page_function'
 import InputSearch from '@/components/40_input/inputSearch'
 import pageDialog from '@/views/10_system/pages/page/dialog/dialog'
 import functionDialog from '@/views/10_system/pages/function/dialog/dialog'
@@ -170,8 +177,12 @@ export default {
         // 单条数据 json的，初始化原始数据
         tempJsonOriginal: {
           id: undefined,
-          name: '',
-          code: '',
+          page_code: undefined,
+          page_name: undefined,
+          page_perms: '',
+          function_code: '',
+          function_name: undefined,
+          perms: '',
           dbversion: 0
         },
         // 单条数据 json
@@ -211,6 +222,7 @@ export default {
         rules: {
           page_code: [{ required: true, message: '请选择页面', trigger: 'change' }],
           page_name: [{ required: true, message: '请选择页面', trigger: 'change' }],
+          page_perms: [{ required: true, message: '请选择页面', trigger: 'change' }],
           function_code: [{ required: true, message: '请选择按钮', trigger: 'change' }],
           function_name: [{ required: true, message: '请选择按钮', trigger: 'change' }],
           perms: [{ required: true, message: '权限标识为必须输入字段', trigger: 'change' }]
@@ -315,7 +327,10 @@ export default {
     initCopyInsertModel() {
       // 数据初始化
       this.dataJson.tempJson = deepCopy(this.data)
-      this.dataJson.tempJson.code = ''
+      this.dataJson.tempJson.function_id = undefined
+      this.dataJson.tempJson.function_code = ''
+      this.dataJson.tempJson.function_name = ''
+      this.dataJson.tempJson.perms = this.dataJson.tempJson.page_perms + ':' + this.dataJson.tempJson.function_code
       this.dataJson.tempJsonOriginal = deepCopy(this.data)
       // 设置按钮
       this.settings.btnShowStatus.showCopyInsert = true
@@ -373,7 +388,10 @@ export default {
         case this.PARAMETERS.STATUS_COPY_INSERT:
           // 数据初始化
           this.dataJson.tempJson = deepCopy(this.dataJson.tempJsonOriginal)
-          this.dataJson.tempJson.code = ''
+          this.dataJson.tempJson.function_id = undefined
+          this.dataJson.tempJson.function_code = ''
+          this.dataJson.tempJson.function_name = ''
+          this.dataJson.tempJson.perms = this.dataJson.tempJson.page_perms + ':' + this.dataJson.tempJson.function_code
           break
         default:
           // 数据初始化
@@ -450,8 +468,12 @@ export default {
     },
     handlePageCloseOk(val) {
       this.popSettings.one.selectedDataJson = val
+      this.dataJson.tempJson.page_id = this.popSettings.one.selectedDataJson.id
       this.dataJson.tempJson.page_code = this.popSettings.one.selectedDataJson.code
       this.dataJson.tempJson.page_name = this.popSettings.one.selectedDataJson.name
+      this.dataJson.tempJson.page_perms = this.popSettings.one.selectedDataJson.perms
+
+      this.dataJson.tempJson.perms = this.dataJson.tempJson.page_perms + ':' + this.dataJson.tempJson.function_code
       this.popSettings.one.visible = false
     },
     handlePageCloseCancel() {
@@ -464,8 +486,10 @@ export default {
     },
     handleFunctionCloseOk(val) {
       this.popSettings.two.selectedDataJson = val
+      this.dataJson.tempJson.function_id = this.popSettings.two.selectedDataJson.id
       this.dataJson.tempJson.function_code = this.popSettings.two.selectedDataJson.code
       this.dataJson.tempJson.function_name = this.popSettings.two.selectedDataJson.name
+      this.dataJson.tempJson.perms = this.dataJson.tempJson.page_perms + ':' + this.dataJson.tempJson.function_code
       this.popSettings.two.visible = false
     },
     handleFunctionCloseCancel() {
